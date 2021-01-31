@@ -7,15 +7,11 @@ These are some Python scripts I have written. Most of them are relatively quick 
 This is a terminal game of Tic-Tac-Toe, also known as Three in a Row. The player's goal is to get three X-es in a row before the computer can get three O-s in a row.
 The game is played through terminal input. The player writes the number of the tile they wish to mark, and the tiles are numbered like this:
 
-Top left: 1
-Top middle: 2
-Top right: 3
-Middle left: 4
-Center tile: 5
-Middle right: 6
-Bottom left: 7
-Bottom middle: 8
-Bottom right: 9
+|   |   |   |
+|:--|:-:|--:|
+| 1 | 2 | 3 |
+| 4 | 5 | 6 |
+| 7 | 8 | 9 |
 
 The computer makes its move by figuring out what the best next tile is for it. It can also pick an unmarked tile at random. The player decides how often the computer
 picks at random by inputting the CPU's difficulty level at the start of the script. If the player picks 0, then the CPU will always pick the best move, while if
