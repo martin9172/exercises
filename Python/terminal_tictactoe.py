@@ -75,7 +75,56 @@ def get_cpu_input(values):
     return 4
     
 def check_win(values):
-    # Major TODO.
+
+    # Winning Tic-Tac-Toe is a matter of getting three equal symbols in a row. The possible tile combinations are
+    # 1-2-3 (top row)
+    # 1-4-7 (left column)
+    # 1-5-9 (up-left diagonal)
+    # 2-5-8 (middle column)
+    # 3-5-7 (up-right diagonal)
+    # 3-6-9 (right column)
+    # 4-5-6 (middle row)
+    # 7-8-9 (bottom row)
+    # Since there are only 8 combinations, it's simplest to simply check them all.
+    # With larger boards, a more sophisticated approach would be appropriate.
+    
+    if values[0] != 0:
+        # 1-2-3 combination
+        if(values[0] == values[1] and values[0] == values[2]):
+            return True
+        # 1-4-7 combination
+        if(values[0] == values[3] and values[0] == values[6]):
+            return True
+        # 1-5-9 combination
+        if(values[0] == values[4] and values[0] == values[8]):
+            return True
+            
+    if values[1] != 0:
+        # 2-5-8 combination
+        if(values[1] == values[4] and values[1] == values[7]):
+            return True
+            
+    if values[2] != 0:
+        # 3-5-7 combination
+        if(values[2] == values[4] and values[2] == values[6]):
+            return True
+        # 3-6-9 combination
+        if(values[2] == values[5] and values[2] == values[8]):
+            return True
+    
+    if values[3] != 0:
+        # 4-5-6 combination
+        if(values[3] == values[4] and values[3] == values[5]):
+            return True
+    
+    if values[6] != 0:
+        # 7-8-9 combination
+        if(values[6] == values[7] and values[6] == values[8]):
+            return True
+    
+    # Due to the transitive property (if a == b and a == c, then b == c),
+    # we only have to include two of the three possible equality checks in the if statements.
+    
     return False
 
 
