@@ -1,4 +1,5 @@
 import sys
+import random
 import numpy as np
 
 
@@ -21,7 +22,7 @@ def game_loop(difficulty):
             print("Player victory!")
             break
         
-        cpu_input = get_cpu_input(game_values)
+        cpu_input = get_cpu_input(game_values, difficulty)
         game_values[cpu_input] = 2
         print(game_values)
         
@@ -70,9 +71,20 @@ def get_input(values):
             print("Please make a valid choice (a number from 1 to 9).")
     return choice-1
 
-def get_cpu_input(values):
+def get_cpu_input(values, randomness):
     # Major TODO.
-    return 4
+    print("CPU choosing tile.")
+    
+    # Random choice
+    if(random.randint(0, 9) < randomness):
+        while(True):
+            choice = random.randint(0, 8)
+            if values[choice] == 0:
+                return choice
+                
+    # "Intelligent" choice
+    else:
+        return 4
     
 def check_win(values):
 
