@@ -13,6 +13,9 @@ def game_loop(difficulty):
         if check_win(game_values):
             print("CPU victory!")
             break
+        if check_draw(game_values):
+            print("This game was a draw!")
+            break
         
         user_input = get_input(game_values)
         game_values[user_input] = 1
@@ -20,6 +23,9 @@ def game_loop(difficulty):
         render(game_values)
         if check_win(game_values):
             print("Player victory!")
+            break
+        if check_draw(game_values):
+            print("This game was a draw!")
             break
         
         cpu_input = get_cpu_input(game_values, difficulty)
@@ -138,6 +144,19 @@ def check_win(values):
     # we only have to include two of the three possible equality checks in the if statements.
     
     return False
+    
+def check_draw(values):
+    # This function simply checks if every tile is filled.
+    # It is always called after the check_win function, so it doesn't have to check for any winning game states.
+    
+    draw = True
+    
+    for i in range(9):
+        if values[i] == 0:
+            draw = False
+            break
+            
+    return draw
 
 
 if __name__ == "__main__":
